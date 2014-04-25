@@ -3,6 +3,7 @@
 
 class Snake
 {
+	
 };
 
 #endif
