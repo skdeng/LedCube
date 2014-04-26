@@ -21,16 +21,7 @@
     <ClInclude Include="Visual Micro\.LedCube.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Snake.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LED.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LedControl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Location.h">
@@ -47,16 +38,7 @@
     <ClCompile Include="LED.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LedControl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Location.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Snake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

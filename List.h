@@ -1,7 +1,3 @@
-/* Taken from 
- *	http://www.instructables.com/id/3D-Snake-on-Charlieplexed-4x4x4-LED-Cube/
-*/
-
 #ifndef LIST_H
 #define LIST_H
 
