@@ -76,6 +76,9 @@
     <ClInclude Include="LED.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="LedControl.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Location.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Visual Micro\.LedCube.vsarduino.h" />
   </ItemGroup>
@@ -83,6 +86,8 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="LED.cpp" />
     <ClCompile Include="LedControl.cpp" />
+    <ClCompile Include="Location.cpp" />
+    <ClCompile Include="Snake.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
