@@ -43,11 +43,14 @@ extern "C" void __cxa_pure_virtual() {;}
 //
 //
 
-#include "c:\arduino-1.0.5-r2\hardware\arduino\cores\arduino\arduino.h"
-#include "c:\arduino-1.0.5-r2\hardware\arduino\variants\standard\pins_arduino.h" 
-#include "C:\Users\K1\Documents\Arduino\LedCube\LedCube.ino"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LED.cpp"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LED.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LedCube.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\Snake.h"
+#include "c:\arduino\hardware\arduino\cores\arduino\arduino.h"
+#include "c:\arduino\hardware\arduino\variants\standard\pins_arduino.h" 
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LedCube.ino"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\Cube.cpp"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\Cube.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LED.cpp"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LED.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LedControl.cpp"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LedControl.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\Snake.h"
 #endif

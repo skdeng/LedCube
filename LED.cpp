@@ -24,16 +24,21 @@ void LED::on()
 
 void LED::off()
 {
-	digitalWrite(posPin, LOW);
-	digitalWrite(negPin, LOW);
+	pinMode(posPin, INPUT);
+	pinMode(negPin, INPUT);
+	status = false;
 }
 
 void LED::toggle()
 {
 	if (status)
+	{
 		off();
+	}
 	else
+	{
 		on();
+	}
 }
 
 void LED::blink(unsigned int time, byte rep)
