@@ -34,9 +34,10 @@ void setup()
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			LedCube[j][0][i] = new LED(8 + j, i);
+			LedCube[j][0][i] = new LED((i+1)*2, 10+j);
 		}
 	}
+	/*
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -57,7 +58,7 @@ void setup()
 		{
 			LedCube[j][3][i] = new LED(i + 4, 8 + j);
 		}
-	}
+	}*/
 
 	//Snake starting location
 	Snake.push_back(Location(0, 3, 0));
@@ -87,7 +88,7 @@ void setup()
 
 void loop()
 {
-	for (int i = 0; i < initialSpeed / (Snake.size() + 1 - speedIncrease); i++);
+	/*for (int i = 0; i < initialSpeed / (Snake.size() + 1 - speedIncrease); i++);
 	{
 		for (int j = 0; j < Snake.size(); j++)
 		{
@@ -98,6 +99,13 @@ void loop()
 		LedCube[candy.getX()][candy.getY()][candy.getZ()]->on();
 		delay(1);
 		LedCube[candy.getX()][candy.getY()][candy.getZ()]->off();
+	}*/
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+				LedCube[j][0][i]->on();
+		}
 	}
 }
 
