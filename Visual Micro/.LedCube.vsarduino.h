@@ -40,6 +40,7 @@
 typedef unsigned char byte;
 extern "C" void __cxa_pure_virtual() {;}
 
+inline void resetSpeed();
 //
 //
 void newCandy();
@@ -47,12 +48,11 @@ void reset();
 
 #include "c:\arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "c:\arduino\hardware\arduino\variants\standard\pins_arduino.h" 
-#include "C:\Users\K1\Documents\Arduino\LedCube\LedCube.ino"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LED.cpp"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LED.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LedCube.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\List.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\Location.cpp"
-#include "C:\Users\K1\Documents\Arduino\LedCube\Location.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\Node.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LedCube.ino"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LED.cpp"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\LED.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\List.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\Location.cpp"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\Location.h"
+#include "C:\Users\ShaoKun\Documents\Arduino\LedCube\Node.h"
 #endif

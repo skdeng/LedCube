@@ -33,9 +33,6 @@
     <ClInclude Include="List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LedCube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Snake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -45,9 +42,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Location.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Snake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
