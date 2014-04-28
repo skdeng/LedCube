@@ -9,7 +9,9 @@
 //uncomment this if you want to debug
 //Do not play with this if you simply don't know what debugging is,
 //in which case you should not be reading this code anyway
-//#define DEBUG
+#define DEBUG
+
+//#define LED_TEST
 
 //Initialize button pins
 uint8_t upButton	= 0;
@@ -19,14 +21,14 @@ uint8_t backButton	= 3;
 uint8_t leftButton  = 4;
 uint8_t rightButton = 5;
 
-int buttonThreshold = 100;
+int buttonThreshold = 50;
 
 //Actual speed of the snake
 int initialSpeed = 600;
 //Change this value if you want the game to get progressively harder (which you probably won't)
 int speedIncrease = 0;
 
-int gameDelay = 500;
+int gameDelay = 0;
 
 #include "LED.h"
 #include "List.h"
@@ -50,6 +52,8 @@ void newCandy();
 void reset();
 inline void resetSpeed() { xSpeed = 0; ySpeed = 0; zSpeed = 0;}
 
+LED l(9, 1);
+
 void setup()
 {
 	//(re)Set the game variables
@@ -60,30 +64,30 @@ void setup()
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			LedCube[j][0][i] = new LED(8+j, i);
+			LedCube[j][0][i] = new LED(8+j, i+2);
 		}
 	}
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			LedCube[j][1][i] = new LED(i, 8 + j);
-		}
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			LedCube[j][2][i] = new LED(8 + j, i + 4);
-		}
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			LedCube[j][3][i] = new LED(i + 4, 8 + j);
-		}
-	}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 0; j < 4; j++)
+	//	{
+	//		LedCube[j][1][i] = new LED(i, 8 + j);
+	//	}
+	//}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 0; j < 4; j++)
+	//	{
+	//		LedCube[j][2][i] = new LED(8 + j, i + 4);
+	//	}
+	//}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 0; j < 4; j++)
+	//	{
+	//		LedCube[j][3][i] = new LED(i + 4, 8 + j);
+	//	}
+	//}
 
 	////Snake starting location
 	//Snake.push_back(Location(0, 3, 0));
@@ -114,15 +118,14 @@ void setup()
 
 void loop()
 {
-	//Game block, only runs if DEBUG is undefined
-#ifndef DEBUG
+#ifndef LED_TEST
 	//Turn on the leds, the magic touch is to trick the human eye with persistence of vision
-	for (int i = 0; i < initialSpeed / (Snake.size() + 1 - speedIncrease); i++);
+	for (int i = 0; i < initialSpeed; i++);
 	{
 		for (int j = 0; j < Snake.size(); j++)
 		{
 			LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]->on();
-			delay(1);
+			delay(600);
 			LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]->off();
 		}
 		LedCube[candy.getX()][candy.getY()][candy.getZ()]->on();
@@ -130,33 +133,39 @@ void loop()
 		LedCube[candy.getX()][candy.getY()][candy.getZ()]->off();
 	}
 
-	//Movement from inputs, boring stuff, look at your own risk
-	if (analogRead(upButton) > buttonThreshold && ySpeed != -1)
-	{
-		resetSpeed();
-		ySpeed = 1;
-	}
-	else if (analogRead(downButton) > buttonThreshold && ySpeed != 1)
-	{
-		resetSpeed();
-		ySpeed = -1;
-	}
-	else if (analogRead(leftButton) > buttonThreshold && xSpeed != 1)
-	{
-		resetSpeed();
-		xSpeed = -1;
-	}
-	else if (analogRead(rightButton) > buttonThreshold && xSpeed != -1)
-	{
-		resetSpeed();
-		xSpeed = 1;
-	}
-	else if (analogRead(frontButton) > buttonThreshold && zSpeed != -1)
-	{
-		resetSpeed();
-		zSpeed = 1;
-	}
-	else if (analogRead(backButton) > buttonThreshold && zSpeed != 1)
+	////Movement from inputs, boring stuff, look at your own risk
+	//if (analogRead(upButton) > buttonThreshold && ySpeed != -1)
+	//{
+	//	resetSpeed();
+	//	ySpeed = 1;
+	//}
+	//else if (analogRead(downButton) > buttonThreshold && ySpeed != 1)
+	//{
+	//	resetSpeed();
+	//	ySpeed = -1;
+	//}
+	//else if (analogRead(leftButton) > buttonThreshold && xSpeed != 1)
+	//{
+	//	resetSpeed();
+	//	xSpeed = -1;
+	//}
+	//else if (analogRead(rightButton) > buttonThreshold && xSpeed != -1)
+	//{
+	//	resetSpeed();
+	//	xSpeed = 1;
+	//}
+	//else if (analogRead(frontButton) > buttonThreshold && zSpeed != -1)
+	//{
+	//	resetSpeed();
+	//	zSpeed = 1;
+	//}
+	//else if (analogRead(backButton) > buttonThreshold && zSpeed != 1)
+	//{
+	//	resetSpeed();
+	//	zSpeed = -1;
+	//}
+
+	if (digitalRead(7) == LOW)
 	{
 		resetSpeed();
 		zSpeed = -1;
@@ -198,11 +207,13 @@ void loop()
 	{
 		newCandy();
 	}
+	//If the snake contains its head (its head has hit the body)
 	if (Snake.contains(l))
 	{
 		//Game over
 		int points = Snake.size() + 1;
 		//Dislay points using 7-segment display
+		reset();
 	}
 	else
 	{
@@ -210,19 +221,56 @@ void loop()
 	}
 #endif
 
-	//Debug mode, light up all the leds
-#ifdef DEBUG
+	//LED test mode, light up all the leds
+#ifdef LED_TEST
+	//Light up all the leds for 1sec
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			for(int k = 0; k < 4; k++)
+			{
+				LedCube[j][i][k]->on();
+			}
+		}
+	}
+	delay(1000);
+	//Turn off all the leds for 0.5sec
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
 		{
 			for (int k = 0; k < 4; k++)
 			{
-				LedCube[k][j][i]->on();
-				delay(200);
-				LedCube[k][j][i]->off();
+				LedCube[j][i][k]->off();
 			}
 		}
+	}
+	delay(500);
+	//Cycle through each led to check for the connection of each one
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			for (int k = 0; k < 4; k++)
+			{
+				LedCube[j][i][k]->on();
+				delay(100);
+				LedCube[j][i][k]->off();
+			}
+		}
+	}
+#endif
+
+	//Debug code
+#ifdef DEBUG
+	if (zSpeed == 1)
+	{
+		digitalWrite(6, HIGH);
+	}
+	else
+	{
+		digitalWrite(6, LOW);
 	}
 #endif
 }
@@ -247,17 +295,17 @@ void reset()
 		Snake.pop_front();
 	}
 	//Starting location
-	x = 0;
-	y = 3;
+	x = 2;
+	y = 0;
 	z = 0;
 
 	//Starting speed
-	xSpeed = 1;
+	xSpeed = 0;
 	ySpeed = 0;
-	zSpeed = 0;
+	zSpeed = 1;
 	delay(gameDelay);
 
 	Snake.push_back(Location(0, 3, 0));
-	randomSeed(analogRead(const char(__TIME__)));
+	randomSeed(analogRead(5));
 	newCandy();
 }

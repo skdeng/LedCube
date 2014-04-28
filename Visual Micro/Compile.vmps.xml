@@ -1,7 +1,7 @@
 <VisualMicro>
   <Program Name="LedCube" Ext=".ino" Location="C:\Users\K1\Documents\Arduino\LedCube">
     <Platform Name="arduino10x" Package="arduino" Platform="avr" Architecture="avr">
-      <Board Name="uno" Description="Arduino Uno" CoreFolder="c:\arduino\hardware\arduino\cores\arduino" VariantFullPath="c:\arduino\hardware\arduino\variants\standard" McuIdePath="c:\arduino" McuSketchBookPath="c:\Users\K1\Documents\Arduino" name="Arduino Uno" upload.protocol="arduino" upload.maximum_size="32256" upload.speed="115200" bootloader.low_fuses="0xff" bootloader.high_fuses="0xde" bootloader.extended_fuses="0x05" bootloader.path="optiboot" bootloader.file="optiboot_atmega328.hex" bootloader.unlock_bits="0x3F" bootloader.lock_bits="0x0F" build.mcu="atmega328p" build.f_cpu="16000000L" build.core="arduino" build.variant="standard" runtime.ide.path="c:\arduino" build.system.path="c:\arduino\hardware\arduino\system" runtime.ide.version="105" originalid="uno" vm.platform.root.path="C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\arduino10x" build.core.vmresolved="c:\arduino\hardware\arduino\cores\arduino" build.core.parentfolder.vmresolved="c:\arduino\hardware\arduino\cores" build.core.coresparentfolder.vmresolved="c:\arduino\hardware\arduino" vm.core.include="arduino.h" ide.hint="Arduino 0023 and 1.0.x Ide" ide.location.key="Arduino" ide.location.ide.winreg="Arduino 1.0.x Application" ide.location.sketchbook.winreg="Arduino 1.0.x Sketchbook" ide.location.sketchbook.preferences="sketchbook.path" ide.location.sketchbook.default="%MYDOCUMENTS%\arduino" ide.location.preferences="%VM_APPDATA_ROAMING%\arduino\preferences.txt" ide.default.package="arduino" ide.default.platform="avr" ide.multiplatform="true" ide.includes="arduino.h" ide.platformswithoutpackage="true" ide.includes.fallback="wprogram.h" ide.extension="ino" ide.extension.fallback="pde" ide.versionLTEQ="149" ide.exe="arduino.exe" ide.hosts="atmel" ide.url="http://arduino.cc/en/Main/Software" vm.debug="true" software="ARDUINO" ide.appid="arduino10x" location.sketchbook="c:\Users\K1\Documents\Arduino" build.board="AVR_UNO" vm.boardsource.path="c:\arduino\hardware\arduino" vm.platformname.name="avr" build.arch="AVR" build.variant.vmresolved="c:\arduino\hardware\arduino\variants\standard" vm.runtime.compiler.showwarnings="false" />
+      <Board Name="uno" Description="Arduino Uno" CoreFolder="c:\arduino\hardware\arduino\cores\arduino" VariantFullPath="c:\arduino\hardware\arduino\variants\standard" McuIdePath="c:\arduino" McuSketchBookPath="c:\Users\K1\Documents\Arduino" name="Arduino Uno" upload.protocol="arduino" upload.maximum_size="32256" upload.speed="115200" bootloader.low_fuses="0xff" bootloader.high_fuses="0xde" bootloader.extended_fuses="0x05" bootloader.path="optiboot" bootloader.file="optiboot_atmega328.hex" bootloader.unlock_bits="0x3F" bootloader.lock_bits="0x0F" build.mcu="atmega328p" build.f_cpu="16000000L" build.core="arduino" build.variant="standard" runtime.ide.path="c:\arduino" build.system.path="c:\arduino\hardware\arduino\system" runtime.ide.version="105" originalid="uno" vm.platform.root.path="C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\arduino10x" build.core.vmresolved="c:\arduino\hardware\arduino\cores\arduino" build.core.parentfolder.vmresolved="c:\arduino\hardware\arduino\cores" build.core.coresparentfolder.vmresolved="c:\arduino\hardware\arduino" vm.core.include="arduino.h" ide.hint="Arduino 0023 and 1.0.x Ide" ide.location.key="Arduino" ide.location.ide.winreg="Arduino 1.0.x Application" ide.location.sketchbook.winreg="Arduino 1.0.x Sketchbook" ide.location.sketchbook.preferences="sketchbook.path" ide.location.sketchbook.default="%MYDOCUMENTS%\arduino" ide.location.preferences="%VM_APPDATA_ROAMING%\arduino\preferences.txt" ide.default.package="arduino" ide.default.platform="avr" ide.multiplatform="true" ide.includes="arduino.h" ide.platformswithoutpackage="true" ide.includes.fallback="wprogram.h" ide.extension="ino" ide.extension.fallback="pde" ide.versionLTEQ="149" ide.exe="arduino.exe" ide.hosts="atmel" ide.url="http://arduino.cc/en/Main/Software" vm.debug="true" software="ARDUINO" ide.appid="arduino10x" location.sketchbook="c:\Users\K1\Documents\Arduino" build.board="AVR_UNO" vm.boardsource.path="c:\arduino\hardware\arduino" vm.platformname.name="avr" build.arch="AVR" build.variant.vmresolved="c:\arduino\hardware\arduino\variants\standard" vm.runtime.compiler.showwarnings="false" compiler.path="c:\arduino\hardware\tools\avr\bin\" includes=" -I&quot;c:\arduino\hardware\arduino\cores\arduino&quot;  -I&quot;c:\arduino\hardware\arduino\variants\standard&quot;  -I&quot;C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers\VM_DBG&quot;  -I&quot;c:\arduino\libraries&quot;  -I&quot;c:\arduino\hardware\arduino\libraries&quot;  -I&quot;C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers&quot;  -I&quot;c:\Users\K1\Documents\Arduino\libraries&quot; " build.path="C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno" build.project_name="LedCube" build.variant.path="c:\arduino\hardware\arduino\variants\standard" archive_file="core.a" object_file="C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno\VM_DBG\VM_DBG.cpp.o" source_file="C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers\VM_DBG\VM_DBG.cpp" object_files="&quot;C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno\LED.cpp.o&quot; &quot;C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno\LedCube.cpp.o&quot; &quot;C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno\Location.cpp.o&quot; &quot;C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno\VM_DBG\VM_mem_check.c.o&quot; &quot;C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno\VM_DBG\VM_DBG.cpp.o&quot; " build.architecture="avr" vmresolved.compiler.path="c:\arduino\hardware\tools\avr\bin\" vmresolved.tools.path="c:\arduino\hardware\tools\avr" />
     </Platform>
     <Compile CompilerErrors="0" ConfigurationName="Debug" StopOnError="False" OptimiseLibs="True" OptimiseCore="True" BuildPath="C:\Users\K1\AppData\Local\VMicro\Arduino\Builds\LedCube\uno" IsDebugStart="1" SketchName="LedCube" ReportDigitalPins="0" ReportAnalogPins="0" ReportI2C="0" ReportFreeMemory="0" IncludeDebug="1" LastDebugPreProcessorDefinitions="VM_DEBUG;VM_DEBUG_ENABLE 1;VM_DEBUG_BANDWIDTH_THROTTLE_MS 100;VM_DEBUGGER_TYPE_HARDWARESERIAL 0;VM_DEBUGGER_TYPE_SOFTWARESERIAL 1;VM_DEBUGGER_TYPE_FASTSERIAL 2;VM_DEBUGGER_TYPE_USB 3;VM_DEBUGGER_TYPE_TEENSY 4;VM_DEBUGGER_TYPE_UART 5;VM_DEBUGGER_TYPE_USART 6;VM_DEBUGGER_TYPE_USBSERIAL 7;VM_DEBUGGER_TYPE_TTYUART 8;VM_DEBUGGER_TYPE_NET_CONSOLE 9;VM_DEBUGGER_TYPE VM_DEBUGGER_TYPE_HARDWARESERIAL;" IncludesDebug="1" IsCompiled="1" />
     <Debug DebugEnabled="1" />
@@ -9,24 +9,24 @@
       <VCCodeMacros />
     </VCCodeModel>
     <BreakPoints>
-      <BreakPoint Index="1" Name="LedCube.ino, line 89" Id="5e338ae0-e094-45ab-aab1-5572c0ba12b6" Enabled="1" Message="{millis()}" MessageTextType="2" PreProcessedMessage="{0}" Condition="millis()&gt;0 || millis()&gt;1" ConditionType="1" CurrentHits="0" File="c:\users\k1\documents\arduino\ledcube\ledcube.ino" FileLine="89" FileColumn="1" FunctionName="" FunctionLineOffset="1" FunctionColumnOffset="1" HitCountTarget="250" HitCountType="4" Language="C++" LocationType="3" Tag="&lt;vmbp Id='bc198ee5-5e5e-4afe-824f-ba24ec699b9a'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
-        <Source>82		pinMode(11, INPUT);
-83		pinMode(12, INPUT);
-84		pinMode(13, INPUT);
-85		digitalWrite(13, HIGH);
-86	
-87	}
-88	
---&gt;89	void loop()
-90	{
-91		/*for (int i = 0; i &lt; initialSpeed / (Snake.size() + 1 - speedIncrease); i++);
-92		{
-93			for (int j = 0; j &lt; Snake.size(); j++)
-94			{
-95				LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]-&gt;on();
-96				delay(1);
-97				LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]-&gt;off();
-98			}
+      <BreakPoint Index="1" Name="LedCube.ino, line 119" Id="ad9609fb-dbfc-4561-94c4-5187c49681cf" Enabled="1" Message="{millis()}" MessageTextType="2" PreProcessedMessage="{0}" Condition="millis()&gt;0 || millis()&gt;1" ConditionType="1" CurrentHits="0" File="c:\users\k1\documents\arduino\ledcube\ledcube.ino" FileLine="119" FileColumn="1" FunctionName="" FunctionLineOffset="1" FunctionColumnOffset="1" HitCountTarget="250" HitCountType="4" Language="C++" LocationType="3" Tag="&lt;vmbp Id='ad9609fb-dbfc-4561-94c4-5187c49681cf'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
+        <Source>112		pinMode(10, INPUT);
+113		pinMode(11, INPUT);
+114		pinMode(12, INPUT);
+115		pinMode(13, INPUT);
+116		//digitalWrite(13, HIGH);
+117	}
+118	
+--&gt;119	void loop()
+120	{
+121	#ifndef LED_TEST
+122		//Turn on the leds, the magic touch is to trick the human eye with persistence of vision
+123		for (int i = 0; i &lt; initialSpeed; i++);
+124		{
+125			for (int j = 0; j &lt; Snake.size(); j++)
+126			{
+127				LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]-&gt;on();
+128				delay(600);
 </Source>
         <MessageVariables>
           <MessageVariable Name="millis()" Index="1" />
