@@ -82,9 +82,6 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="Snake.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="Visual Micro\.LedCube.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
