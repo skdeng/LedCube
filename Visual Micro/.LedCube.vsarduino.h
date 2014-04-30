@@ -51,7 +51,6 @@ void reset();
 #include "C:\Users\K1\Documents\Arduino\LedCube\LedCube.ino"
 #include "C:\Users\K1\Documents\Arduino\LedCube\LED.cpp"
 #include "C:\Users\K1\Documents\Arduino\LedCube\LED.h"
-#include "C:\Users\K1\Documents\Arduino\LedCube\LedCube.h"
 #include "C:\Users\K1\Documents\Arduino\LedCube\List.h"
 #include "C:\Users\K1\Documents\Arduino\LedCube\Location.cpp"
 #include "C:\Users\K1\Documents\Arduino\LedCube\Location.h"

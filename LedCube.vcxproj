@@ -79,9 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LED.h" />
-    <ClInclude Include="LedCube.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="List.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Node.h" />

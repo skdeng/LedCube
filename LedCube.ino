@@ -2,14 +2,16 @@
  * (c) 2014 under Do Whatever the F You Want With This Code License
  * Credits to White-Tea for code structure
  * @ http://www.instructables.com/id/3D-Snake-on-Charlieplexed-4x4x4-LED-Cube/
- * Code adapted for our project (cuz apparently we need this to graduate xD)
+ * Corrected some errors and improved/adapted for our project
 */
 
-//Enable debug mode
-//uncomment this if you want to debug
+//Enable debug mode 
+// * it's mainly for development anyway
+// * but I left thedebugging code cuz teachers always say to show work)
+//uncomment this if you want to use debug
 //Do not play with this if you simply don't know what debugging is,
 //in which case you should not be reading this code anyway
-#define DEBUG
+//#define DEBUG
 
 //Enable led testing, basically light up the leds
 //Will turn off snake game automatically, don't worry about that :)
@@ -26,11 +28,7 @@ uint8_t rightButton = 5;
 int buttonThreshold = 50;
 
 //Actual speed of the snake
-int initialSpeed = 600;
-//Change this value if you want the game to get progressively harder (which you probably won't)
-int speedIncrease = 0;
-
-int gameDelay = 0;
+int speed = 600;
 
 #include "LED.h"
 #include "List.h"
@@ -58,9 +56,6 @@ LED l(9, 1);
 
 void setup()
 {
-	//(re)Set the game variables
-	reset();
-
 	//Jibber-jabber about led pin initialization
 	for (int i = 0; i < 4; i++)
 	{
@@ -92,8 +87,6 @@ void setup()
 	}
 
 	//Set all pins to input for charlieplexing
-	pinMode(0, INPUT);
-	pinMode(1, INPUT);
 	pinMode(2, INPUT);
 	pinMode(3, INPUT);
 	pinMode(4, INPUT);
@@ -106,116 +99,109 @@ void setup()
 	pinMode(11, INPUT);
 	pinMode(12, INPUT);
 	pinMode(13, INPUT);
-	//digitalWrite(13, HIGH);
+
+	//(re)Set the game variables
+	reset();
+	candy = Location(1, 0, 3);
 }
 
 void loop()
 {
-//#ifndef LED_TEST
-//	//Turn on the leds, the magic touch is to trick the human eye with persistence of vision
-//	for (int i = 0; i < initialSpeed; i++);
-//	{
-//		for (int j = 0; j < Snake.size(); j++)
-//		{
-//			LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]->on();
-//			delay(600);
-//			LedCube[Snake[j].getX()][Snake[j].getY()][Snake[j].getZ()]->off();
-//		}
-//		LedCube[candy.getX()][candy.getY()][candy.getZ()]->on();
-//		delay(1);
-//		LedCube[candy.getX()][candy.getY()][candy.getZ()]->off();
-//	}
-//
-//	////Movement from inputs, boring stuff, look at your own risk
-//	//if (analogRead(upButton) > buttonThreshold && ySpeed != -1)
-//	//{
-//	//	resetSpeed();
-//	//	ySpeed = 1;
-//	//}
-//	//else if (analogRead(downButton) > buttonThreshold && ySpeed != 1)
-//	//{
-//	//	resetSpeed();
-//	//	ySpeed = -1;
-//	//}
-//	//else if (analogRead(leftButton) > buttonThreshold && xSpeed != 1)
-//	//{
-//	//	resetSpeed();
-//	//	xSpeed = -1;
-//	//}
-//	//else if (analogRead(rightButton) > buttonThreshold && xSpeed != -1)
-//	//{
-//	//	resetSpeed();
-//	//	xSpeed = 1;
-//	//}
-//	//else if (analogRead(frontButton) > buttonThreshold && zSpeed != -1)
-//	//{
-//	//	resetSpeed();
-//	//	zSpeed = 1;
-//	//}
-//	//else if (analogRead(backButton) > buttonThreshold && zSpeed != 1)
-//	//{
-//	//	resetSpeed();
-//	//	zSpeed = -1;
-//	//}
-//
-//#ifdef DEBUG
-//	if (analogRead(5) > 500)
-//	{
-//		digitalWrite(7, HIGH);
-//		resetSpeed();
-//		xSpeed = -1;
-//	}
-//#endif
-//
-//	//Make that the snake stays within the boundaries
-//	if (x + xSpeed == -1)
-//	{
-//		x = 3;
-//	}
-//	else
-//	{
-//		x = (x + xSpeed) % 4;
-//	}
-//	if (y + ySpeed == -1)
-//	{
-//		y = 3;
-//	}
-//	else
-//	{
-//		y = (y + ySpeed) % 4;
-//	}
-//	if (z + zSpeed == -1)
-//	{
-//		z = 3;
-//	}
-//	else
-//	{
-//		z = (z + zSpeed) % 4;
-//	}
-//
-//	//Head of the snake
-//	Location l = Location(x, y, z);
-//	if (l != candy)
-//	{
-//		Snake.pop_front();
-//	}
-//	else
-//	{
-//		newCandy();
-//	}
-//	//If the snake contains its head (its head has hit the body)
-//	if (Snake.contains(l))
-//	{
-//		//Game over
-//		int points = Snake.size() + 1;
-//		//Dislay points using 7-segment display
-//		reset();
-//	}
-//	else
-//	{
-//		Snake.push_back(Location(x, y, z));
-//	}
-//#endif
+#ifndef LED_TEST
+	for (int s = 0; s < speed; s++)
+	{
+		for (int i = 0; i < Snake.size(); i++)
+		{
+			LedCube[Snake[i].getX()][Snake[i].getY()][Snake[i].getZ()]->on();
+			delay(1);
+			LedCube[Snake[i].getX()][Snake[i].getY()][Snake[i].getZ()]->off();
+		}
+		LedCube[candy.getX()][candy.getY()][candy.getZ()]->on();
+		delay(1);
+		LedCube[candy.getX()][candy.getY()][candy.getZ()]->off();
+	}
+
+	//Movement from inputs, boring stuff, look at your own risk
+	if (analogRead(upButton) > buttonThreshold && ySpeed != -1)
+	{
+		resetSpeed();
+		ySpeed = 1;
+	}
+	else if (analogRead(downButton) > buttonThreshold && ySpeed != 1)
+	{
+		resetSpeed();
+		ySpeed = -1;
+	}
+	else if (analogRead(leftButton) > buttonThreshold && xSpeed != 1)
+	{
+		resetSpeed();
+		xSpeed = -1;
+	}
+	else if (analogRead(rightButton) > buttonThreshold && xSpeed != -1)
+	{
+		resetSpeed();
+		xSpeed = 1;
+	}
+	else if (analogRead(frontButton) > buttonThreshold && zSpeed != -1)
+	{
+		resetSpeed();
+		zSpeed = 1;
+	}
+	else if (analogRead(backButton) > buttonThreshold && zSpeed != 1)
+	{
+		resetSpeed();
+		zSpeed = -1;
+	}
+
+	//Make that the snake stays within the boundaries
+	if (x + xSpeed == -1)
+	{
+		x = 3;
+	}
+	else
+	{
+		x = (x + xSpeed) % 4;
+	}
+	if (y + ySpeed == -1)
+	{
+		y = 3;
+	}
+	else
+	{
+		y = (y + ySpeed) % 4;
+	}
+	if (z + zSpeed == -1)
+	{
+		z = 3;
+	}
+	else
+	{
+		z = (z + zSpeed) % 4;
+	}
+
+	//Head of the snake
+	Location l = Location(x, y, z);
+	if (l != candy)
+	{
+		Snake.pop_front();
+	}
+	else
+	{
+		newCandy();
+	}
+	//If the snake contains its head (its head has hit the body)
+	if (Snake.contains(l))
+	{
+		//Game over
+		int points = Snake.size() + 1;
+		//Dislay points using 7-segment display
+		reset();
+	}
+	else
+	{
+		Snake.push_back(Location(x, y, z));
+	}
+#endif
 
 	//LED test mode, light up all the leds
 #ifdef LED_TEST
@@ -260,8 +246,14 @@ void loop()
 
 	//Debug preprocessor block
 #ifdef DEBUG
-	LedCube[0][0][0]->on();
+	if (analogRead(5) > 500)
+	{
+		digitalWrite(7, HIGH);
+		resetSpeed();
+		xSpeed = -1;
+	}
 #endif
+
 }
 
 //Generate a new candy at the random location
@@ -284,7 +276,7 @@ void reset()
 		Snake.pop_front();
 	}
 	//Starting location
-	x = 2;
+	x = 1;
 	y = 0;
 	z = 0;
 
@@ -292,9 +284,8 @@ void reset()
 	xSpeed = 0;
 	ySpeed = 0;
 	zSpeed = 1;
-	delay(gameDelay);
 
-	Snake.push_back(Location(0, 3, 0));
+	Snake.push_back(Location(x, y, z));
 	randomSeed(analogRead(5));
 	newCandy();
 }
