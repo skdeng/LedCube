@@ -6,29 +6,27 @@
 */
 
 //Enable debug mode 
-// * it's mainly for development anyway
-// * but I left thedebugging code cuz teachers always say to show work)
-//uncomment this if you want to use debug
-//Do not play with this if you simply don't know what debugging is,
-//in which case you should not be reading this code anyway
-//#define DEBUG
+// * it's mainly for development/myself anyway
+// * but I left the debugging code cuz teachers always say to show work
+// * uncomment this to activate debug blocks
+#define DEBUG
 
 //Enable led testing, basically light up the leds
 //Will turn off snake game automatically, don't worry about that :)
 //#define LED_TEST
 
 //Initialize button pins
-uint8_t upButton	= 0;
-uint8_t downButton	= 1;
-uint8_t frontButton = 2;
-uint8_t backButton	= 3;
-uint8_t leftButton  = 4;
-uint8_t rightButton = 5;
+uint8_t upButton	= A0;
+uint8_t downButton	= A1;
+uint8_t frontButton = A2;
+uint8_t backButton	= A3;
+uint8_t leftButton  = A4;
+uint8_t rightButton = A5;
 
-int buttonThreshold = 50;
+int buttonThreshold = 1000;
 
 //Actual speed of the snake
-int speed = 600;
+int speed = 400;
 
 #include "LED.h"
 #include "List.h"
@@ -102,7 +100,15 @@ void setup()
 
 	//(re)Set the game variables
 	reset();
+
+#ifdef DEBUG
+	Serial.begin(115200);
+
 	candy = Location(1, 0, 3);
+
+	pinMode(0, OUTPUT);
+	digitalWrite(0, LOW);
+#endif
 }
 
 void loop()
@@ -246,12 +252,20 @@ void loop()
 
 	//Debug preprocessor block
 #ifdef DEBUG
-	if (analogRead(5) > 500)
+	float a0 = analogRead(0);
+	float a1 = analogRead(1);
+	float a2 = analogRead(2);
+	float a3 = analogRead(3);
+	float a4 = analogRead(4);
+	float a5 = analogRead(5);
+	if (a5 > 900)
 	{
-		digitalWrite(7, HIGH);
+		digitalWrite(0, HIGH);
 		resetSpeed();
 		xSpeed = -1;
+		Serial.println("asdasddfoigjpiofdkg");
 	}
+	Serial.println(analogRead(4));
 #endif
 
 }
@@ -278,7 +292,7 @@ void reset()
 	//Starting location
 	x = 1;
 	y = 0;
-	z = 0;
+	z = 1;
 
 	//Starting speed
 	xSpeed = 0;
@@ -286,6 +300,6 @@ void reset()
 	zSpeed = 1;
 
 	Snake.push_back(Location(x, y, z));
-	randomSeed(analogRead(5));
+	randomSeed(analogRead(5)*analogRead(0));
 	newCandy();
 }
