@@ -9,7 +9,7 @@
 // * it's mainly for development/myself anyway
 // * but I left the debugging code cuz teachers always say to show work
 // * uncomment this to activate debug blocks
-#define DEBUG
+//#define DEBUG
 
 //Enable led testing, basically light up the leds
 //Will turn off snake game automatically, don't worry about that :)
@@ -32,7 +32,7 @@ int speed = 400;
 #include "List.h"
 #include "Location.h"
 
-//Array of leds for the ledcube (I have no idea why I commented this)
+//I think the name is pretty self-explanatory for this one
 LED* LedCube[4][4][4];
 //List of location for the snake
 List<Location> Snake;
@@ -48,9 +48,8 @@ Location candy;
 //Function forward declarations
 void newCandy();
 void reset();
+//Reset the all the speeds to 0
 inline void resetSpeed() { xSpeed = 0; ySpeed = 0; zSpeed = 0;}
-
-LED l(9, 1);
 
 void setup()
 {
@@ -59,30 +58,33 @@ void setup()
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			LedCube[j][0][i] = new LED(10+j, i+2);
+			LedCube[j][0][i] = new LED(10 + j, i + 2);
+			LedCube[j][1][i] = new LED(i + 2, 10 + j);
+			LedCube[j][1][i] = new LED(i + 2, 10 + j);
+			LedCube[j][3][i] = new LED(i + 6, 10 + j);
 		}
 	}
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			LedCube[j][1][i] = new LED(i+2, 10 + j);
-		}
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			LedCube[j][2][i] = new LED(10 + j, i + 4);
-		}
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			LedCube[j][3][i] = new LED(i + 4, 10 + j);
-		}
-	}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 0; j < 4; j++)
+	//	{
+	//		LedCube[j][1][i] = new LED(i + 2, 10 + j);
+	//	}
+	//}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 0; j < 4; j++)
+	//	{
+	//		LedCube[j][1][i] = new LED(i + 2, 10 + j);
+	//	}
+	//}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 0; j < 4; j++)
+	//	{
+	//		LedCube[j][3][i] = new LED(i + 6, 10 + j);
+	//	}
+	//}
 
 	//Set all pins to input for charlieplexing
 	pinMode(2, INPUT);
@@ -101,6 +103,7 @@ void setup()
 	//(re)Set the game variables
 	reset();
 
+	//debug block
 #ifdef DEBUG
 	Serial.begin(115200);
 
@@ -199,8 +202,7 @@ void loop()
 	if (Snake.contains(l))
 	{
 		//Game over
-		int points = Snake.size() + 1;
-		//Dislay points using 7-segment display
+		int points = Snake.size() + 1; //Maybe do something with this like displaying it on a 7-segment
 		reset();
 	}
 	else
@@ -210,7 +212,7 @@ void loop()
 #endif
 
 	//LED test mode, light up all the leds
-#ifdef LED_TEST
+#ifdef LED_TEST_
 	//Light up all the leds for 1sec
 	for (int i = 0; i < 4; i++)
 	{
@@ -250,7 +252,7 @@ void loop()
 	}
 #endif
 
-	//Debug preprocessor block
+	//Debug block
 #ifdef DEBUG
 	float a0 = analogRead(0);
 	float a1 = analogRead(1);
@@ -265,7 +267,8 @@ void loop()
 		xSpeed = -1;
 		Serial.println("asdasddfoigjpiofdkg");
 	}
-	Serial.println(analogRead(4));
+	Serial.println(digitalRead(13));
+	//Serial.println(a5);
 #endif
 
 }
@@ -291,7 +294,7 @@ void reset()
 	}
 	//Starting location
 	x = 1;
-	y = 0;
+	y = 1;
 	z = 1;
 
 	//Starting speed
@@ -300,6 +303,7 @@ void reset()
 	zSpeed = 1;
 
 	Snake.push_back(Location(x, y, z));
+	//Get some randomness here
 	randomSeed(analogRead(5)*analogRead(0));
 	newCandy();
 }
