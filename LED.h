@@ -17,10 +17,6 @@
 ||
 */
 
-/* Approved by Shao Kun Deng
- * It does make things easier :D
-*/
-
 #ifndef LED_H
 #define LED_H
 

@@ -1,8 +1,6 @@
 /* Author: Shao Kun Deng
  * (c) 2014 under Do Whatever the F You Want With This Code License
- * Credits to White-Tea for code structure
- * @ http://www.instructables.com/id/3D-Snake-on-Charlieplexed-4x4x4-LED-Cube/
- * Corrected some errors and improved/adapted for our project
+ * All the libraries belong to their respective owners
 */
 
 //Enable debug mode 
@@ -60,31 +58,10 @@ void setup()
 		{
 			LedCube[j][0][i] = new LED(10 + j, i + 2);
 			LedCube[j][1][i] = new LED(i + 2, 10 + j);
-			LedCube[j][1][i] = new LED(i + 2, 10 + j);
+			LedCube[j][2][i] = new LED(10 + j, i + 6);
 			LedCube[j][3][i] = new LED(i + 6, 10 + j);
 		}
 	}
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	for (int j = 0; j < 4; j++)
-	//	{
-	//		LedCube[j][1][i] = new LED(i + 2, 10 + j);
-	//	}
-	//}
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	for (int j = 0; j < 4; j++)
-	//	{
-	//		LedCube[j][1][i] = new LED(i + 2, 10 + j);
-	//	}
-	//}
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	for (int j = 0; j < 4; j++)
-	//	{
-	//		LedCube[j][3][i] = new LED(i + 6, 10 + j);
-	//	}
-	//}
 
 	//Set all pins to input for charlieplexing
 	pinMode(2, INPUT);
@@ -212,7 +189,7 @@ void loop()
 #endif
 
 	//LED test mode, light up all the leds
-#ifdef LED_TEST_
+#ifdef LED_TEST
 	//Light up all the leds for 1sec
 	for (int i = 0; i < 4; i++)
 	{
